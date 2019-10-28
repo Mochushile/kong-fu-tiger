@@ -62,7 +62,7 @@
         <profile>
             <id>dev</id>
             <properties>
-                <build.profile.id>dev</build.profile.id>
+                <profile>dev</profile>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -72,49 +72,58 @@
         <profile>
             <id>test</id>
             <properties>
-                <build.profile.id>test</build.profile.id>
+                <profile>test</profile>
+            </properties>
+        </profile>
+        <profile>
+            <id>sit</id>
+            <properties>
+                <profile>sit</profile>
             </properties>
         </profile>
         <!--生产环境-->
         <profile>
             <id>prod</id>
             <properties>
-                <build.profile.id>prod</build.profile.id>
+                <profile>prod</profile>
             </properties>
         </profile>
     </profiles>
     <build>
-        <finalName>hshcselfcredit</finalName>
+        <finalName>kong-fu-tiger</finalName>
         <!--<filters> &lt;!&ndash; 指定使用的 filter &ndash;&gt;-->
-            <!--<filter>src/main/filters/dev.properties</filter>-->
+            <!--<filter>src/main/filters/${profile}.properties</filter>-->
         <!--</filters>-->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <excludes>
-                    <exclude>**/*.woff</exclude>
-                    <exclude>**/*.woff2</exclude>
-                    <exclude>**/*.ttf</exclude>
-                    <exclude>**/*.xlsx</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>false</filtering>
-                <includes>
-                    <include>**/*.woff</include>
-                    <include>**/*.woff2</include>
-                    <include>**/*.ttf</include>
-                    <include>**/*.xlsx</include>
-                </includes>
-            </resource>
-        </resources>
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<filtering>true</filtering>-->
+                <!--<excludes>-->
+                    <!--<exclude>**/*.woff</exclude>-->
+                    <!--<exclude>**/*.woff2</exclude>-->
+                    <!--<exclude>**/*.ttf</exclude>-->
+                    <!--<exclude>**/*.xlsx</exclude>-->
+                <!--</excludes>-->
+            <!--</resource>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<filtering>false</filtering>-->
+                <!--<includes>-->
+                    <!--<include>**/*.woff</include>-->
+                    <!--<include>**/*.woff2</include>-->
+                    <!--<include>**/*.ttf</include>-->
+                    <!--<include>**/*.xlsx</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+        <!--</resources>-->
 
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--<configuration>-->
+                    <!--<fork>true</fork> &lt;!&ndash; 如果没有该配置，devtools不会生效 &ndash;&gt;-->
+                <!--</configuration>-->
             </plugin>
         </plugins>
     </build>
