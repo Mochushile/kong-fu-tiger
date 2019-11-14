@@ -29,6 +29,7 @@ public class AijinTest {
         riskAijinCustomers.stream().forEach(cust->{
 
             System.out.println(cust.getCustomer());
+            
         });
     }
 }
