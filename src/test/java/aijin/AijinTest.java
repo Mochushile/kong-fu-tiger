@@ -24,6 +24,7 @@ public class AijinTest {
     RiskAijinScoreService riskAijinScoreService;
     @Test
     public void test1(){
+        
         RiskAijinScoreVO riskAijinScoreById = riskAijinScoreService.getRiskAijinScoreById(460L);
         List<RiscustomerVO> riskAijinCustomers = riskAijinScoreService.getRiskAijinCustomers("2019-09-15 00:00:00");
         riskAijinCustomers.stream().forEach(cust->{
